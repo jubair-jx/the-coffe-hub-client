@@ -3,7 +3,91 @@ import React from "react";
 const Add = () => {
   return (
     <div>
-      <h1 className="text-3xl">Add page</h1>
+      <div className="rounded-md bg-[#f8efd2] mx-40 my-20 h-[600px] ">
+        <div className="text-center">
+          <h1 className="text-3xl font-bold pt-5">Add New Coffe</h1>
+          <p className="mt-5 w-[650px] text-sm mx-auto ">
+            It is a long established fact that a reader will be distraceted by
+            the readable content of a page when looking at its layout. The point
+            of using Lorem Ipsum is that it has a more-or-less normal
+            distribution of letters, as opposed to using Content here.
+          </p>
+        </div>
+        <div className=" grid md:grid-cols-2 ">
+          <div className="mt-8 ml-20">
+            <div className=" mb-4 w-full md:w-9/12 px-4">
+              <label className="block font-medium mb-2">Name</label>
+              <input
+                type="text"
+                placeholder="Enter Coffe Name"
+                name="coffeName"
+                className="w-full py-2 px-3 border border-gray-300 rounded-md"
+              />
+            </div>
+            <div className=" w-full md:w-9/12 mb-4 px-4">
+              <label className="block font-medium mb-2">Supplier</label>
+              <input
+                type="text"
+                placeholder="Enter Supplier Name"
+                name="supplierName"
+                className="w-full py-2 px-3 border border-gray-300 rounded-md"
+              />
+            </div>
+            <div className=" w-full md:w-9/12 mb-4 px-4">
+              <label className="block font-medium mb-2">Category</label>
+              <input
+                type="text"
+                placeholder="Enter Category Name"
+                name="category"
+                className="w-full py-2 px-3 border border-gray-300 rounded-md"
+              />
+            </div>
+          </div>
+          <div className="mt-8 ml-20">
+            <div className=" w-full md:w-9/12 mb-4 px-4">
+              <label className="block font-medium mb-2">Chef</label>
+              <input
+                placeholder="Enter Chef Name"
+                name="chef"
+                type="text"
+                className="w-full py-2 px-3 border border-gray-300 rounded-md"
+              />
+            </div>
+            <div className=" w-full md:w-9/12 mb-4 px-4">
+              <label className="block font-medium mb-2">Taste</label>
+              <input
+                type="text"
+                placeholder="Enter Your Taste"
+                name="taste"
+                className="w-full py-2 px-3 border border-gray-300 rounded-md"
+              />
+            </div>
+            <div className=" w-full md:w-9/12 mb-4 px-4">
+              <label className="block font-medium mb-2">Details</label>
+              <input
+                type="text"
+                placeholder="Enter Your Details"
+                name="details"
+                className="w-full py-2 px-3 border border-gray-300 rounded-md"
+              />
+            </div>
+          </div>
+        </div>
+        <div className=" w-full md:w-[70%] mx-auto px-8 ">
+          <label className="block font-medium mb-2">Photo URL</label>
+          <input
+            type="text"
+            placeholder="Enter Photo URL"
+            name="details"
+            className="w-full py-2 px-3 border border-gray-300 rounded-md"
+          />
+        </div>
+        <div className="w-[70%] mx-auto px-8 py-2">
+          <button className="w-full bg-[#D2B48C] border border-[#331A15] text-black font-bold py-2 px-4 rounded">
+            Add Coffee
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
