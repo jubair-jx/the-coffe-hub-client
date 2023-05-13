@@ -1,4 +1,5 @@
 import React from "react";
+import Swal from "sweetalert2";
 
 const Add = () => {
   const handleSubmitForm = (e) => {
@@ -21,6 +22,26 @@ const Add = () => {
       details,
       photoUrl,
     };
+    console.log(coffeAdd);
+    fetch("http://localhost:4000/coffe", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(coffeAdd),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Good Job!!!",
+            text: "Your Coffe is Added...",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <div>
