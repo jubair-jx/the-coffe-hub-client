@@ -1,42 +1,75 @@
 import React from "react";
+import Swal from "sweetalert2";
 
 const ShowAddCoffe = ({ coffe }) => {
-  const { name, supplierName, category, chef, taste, details, photoUrl } =
+  const { _id, name, supplierName, category, chef, taste, details, photoUrl } =
     coffe;
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        fetch(`http://localhost:4000/coffe/${id}`, {
+          method: "DELETE",
+          // headers: {
+          //   "content-type": "application/json"
+          // },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your Coffe has been deleted.", "success");
+            }
+          });
+      }
+    });
+  };
   return (
     <div>
-      <div className="card card-side bg-base-100 shadow-xl border-2">
+      <div className="card card-side h-60 bg-[#F5F4F1] shadow-xl border-2">
         <figure>
           <img
             src={photoUrl}
             alt="Movie"
-            className="w-44 rounded-xl px-4 py-2 h-52"
+            className="w-40 rounded-xl px-4 py-2 h-48"
           />
         </figure>
-        <div className=" gap-10 py-14 flex">
-          <div>
-            <h2 className="text-lg ">
+        <div className="  py-14 flex">
+          <div className="">
+            <h2 className="text-md ">
               {" "}
               <span className="font-semibold">Name:</span> {name}
             </h2>
-            <h2 className="text-lg ">
+            <h2 className="text-md ">
               {" "}
               <span className="font-semibold">Chef:</span> {chef}
             </h2>
-            <h2 className="text-lg ">
+            <h2 className="text-md ">
               {" "}
-              <span className="font-semibold">Price:</span> 10$
+              <span className="font-semibold">Category:</span> {category}
+            </h2>
+            <h2 className="text-md ">
+              {" "}
+              <span className="font-semibold">Price:</span> {details}$
             </h2>
           </div>
-          <div className="flex flex-col-reverse gap-5">
-            <button className="px-3 py-3 bg-[#E3B577] rounded-md">
+          <div className="flex flex-col-reverse gap-3 items-center justify-center ml-10 md:ml-20">
+            <button className="px-3 py-3 bg-[#E3B577]  rounded-md">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="w-6 h-6 text-white"
               >
                 <path
                   strokeLinecap="round"
@@ -66,7 +99,10 @@ const ShowAddCoffe = ({ coffe }) => {
                 />
               </svg>
             </button>
-            <button className="px-3 py-3 bg-[#EA4744] rounded-md">
+            <button
+              onClick={() => handleDelete(_id)}
+              className="px-3 py-3 bg-[#EA4744] rounded-md"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

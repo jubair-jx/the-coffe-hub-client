@@ -106,10 +106,10 @@ const Add = () => {
                 />
               </div>
               <div className=" w-full md:w-9/12 mb-4 px-4">
-                <label className="block font-medium mb-2">Details</label>
+                <label className="block font-medium mb-2">Price</label>
                 <input
                   type="text"
-                  placeholder="Enter Your Details"
+                  placeholder="Enter Coffe Price"
                   name="details"
                   className="w-full py-2 px-3 border border-gray-300 rounded-md"
                 />
