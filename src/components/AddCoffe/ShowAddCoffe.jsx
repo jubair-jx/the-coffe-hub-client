@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ShowAddCoffe = ({ coffe }) => {
@@ -83,7 +84,10 @@ const ShowAddCoffe = ({ coffe }) => {
                 />
               </svg>
             </button>
-            <button className="px-3 py-3 bg-[#3C393B] text-white rounded-md">
+            <Link
+              to={`/updateProduct/${_id}`}
+              className="px-3 py-3 bg-[#3C393B] text-white rounded-md"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -98,7 +102,7 @@ const ShowAddCoffe = ({ coffe }) => {
                   d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
                 />
               </svg>
-            </button>
+            </Link>
             <button
               onClick={() => handleDelete(_id)}
               className="px-3 py-3 bg-[#EA4744] rounded-md"

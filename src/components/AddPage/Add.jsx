@@ -23,7 +23,7 @@ const Add = () => {
       photoUrl,
     };
     console.log(coffeAdd);
-    fetch("http://localhost:4000/coffe", {
+    fetch("http://localhost:4000/coffes", {
       method: "POST",
       headers: {
         "content-type": "application/json",
