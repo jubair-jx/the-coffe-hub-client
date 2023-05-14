@@ -3,7 +3,8 @@ import { Link, useLoaderData } from "react-router-dom";
 import ShowAddCoffe from "./ShowAddCoffe";
 
 const AddCoffe = () => {
-  const coffes = useLoaderData();
+  const Loadedcoffes = useLoaderData();
+  const [coffes, setCoffes] = useState(Loadedcoffes);
 
   return (
     <div>
@@ -20,7 +21,12 @@ const AddCoffe = () => {
       </div>
       <div className="grid md:grid-cols-2 container md:px-40 md:py-10 gap-4 mt-4 px-6 py-6">
         {coffes.map((coffe) => (
-          <ShowAddCoffe key={coffe._id} coffe={coffe}></ShowAddCoffe>
+          <ShowAddCoffe
+            coffes={coffes}
+            setCoffes={setCoffes}
+            key={coffe._id}
+            coffe={coffe}
+          ></ShowAddCoffe>
         ))}
       </div>
     </div>

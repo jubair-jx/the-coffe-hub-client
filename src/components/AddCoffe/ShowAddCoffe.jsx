@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const ShowAddCoffe = ({ coffe }) => {
+const ShowAddCoffe = ({ coffe, coffes, setCoffes }) => {
   const { _id, name, supplierName, category, chef, taste, details, photoUrl } =
     coffe;
 
@@ -18,7 +18,7 @@ const ShowAddCoffe = ({ coffe }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         // Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        fetch(`http://localhost:4000/coffe/${id}`, {
+        fetch(`http://localhost:4000/coffes/${id}`, {
           method: "DELETE",
           // headers: {
           //   "content-type": "application/json"
@@ -28,6 +28,8 @@ const ShowAddCoffe = ({ coffe }) => {
           .then((data) => {
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your Coffe has been deleted.", "success");
+              const remaining = coffes.filter((coffe) => coffe._id !== _id);
+              setCoffes(remaining);
             }
           });
       }
